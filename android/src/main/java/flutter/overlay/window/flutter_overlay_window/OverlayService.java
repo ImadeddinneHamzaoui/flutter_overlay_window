@@ -67,7 +67,7 @@ public class OverlayService extends Service implements View.OnTouchListener {
     private float lastX, lastY;
     private int lastYPosition;
     private boolean dragging;
-    private static final float MAXIMUM_OPACITY_ALLOWED_FOR_S_AND_HIGHER = 0.8f;
+    private static final float MAXIMUM_OPACITY_ALLOWED_FOR_S_AND_HIGHER = 1.0f;
     private Point szWindow = new Point();
     private Timer mTrayAnimationTimer;
     private TrayAnimationTimerTask mTrayTimerTask;
@@ -171,7 +171,7 @@ public class OverlayService extends Service implements View.OnTouchListener {
                 PixelFormat.TRANSLUCENT
         );
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && WindowSetup.flag == clickableFlag) {
-            params.alpha = MAXIMUM_OPACITY_ALLOWED_FOR_S_AND_HIGHER;
+            params.alpha = 1;
         }
         params.gravity = WindowSetup.gravity;
         flutterView.setOnTouchListener(this);
@@ -229,7 +229,7 @@ public class OverlayService extends Service implements View.OnTouchListener {
                     WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
                     WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && WindowSetup.flag == clickableFlag) {
-                params.alpha = MAXIMUM_OPACITY_ALLOWED_FOR_S_AND_HIGHER;
+                params.alpha = 1;
             } else {
                 params.alpha = 1;
             }
