@@ -126,7 +126,7 @@ public class OverlayService extends Service implements View.OnTouchListener {
         flutterView.setFitsSystemWindows(true);
         flutterView.setFocusable(true);
         flutterView.setFocusableInTouchMode(true);
-        flutterView.setBackgroundColor(Color.TRANSPARENT);
+        flutterView.setBackgroundColor(Color.BLACK);
         flutterChannel.setMethodCallHandler((call, result) -> {
             if (call.method.equals("updateFlag")) {
                 String flag = call.argument("flag").toString();
